@@ -7,15 +7,15 @@ Aadhaar Card Portal - Flask Application This project is a simple Aadhaar Card As
 🖥️ Project Screenshots
 
 Home Page
+![AADHAR](https://github.com/user-attachments/assets/fd717faf-c462-4495-bf7e-7723fb70bcc1)
 
 Sign-up Confirmation
-![AADHAR](https://github.com/user-attachments/assets/d78e799d-4a6d-446a-9d66-867395963722)
+![AADHAR 2](https://github.com/user-attachments/assets/a4a5727b-33ae-4487-8081-24fb893ec7a1)
 
 My-Sql Dashboard when Signed-up
-![AADHAR 2](https://github.com/user-attachments/assets/9da0aba9-0ff0-4d94-a67a-562ecab9fc37)
+![AADHAR 3](https://github.com/user-attachments/assets/c2692574-025a-4d9a-ac9e-5a28e7253bfb)
 
 Token Generation Section
-![AADHAR](https://github.com/user-attachments/assets/69c2bf14-b64a-474f-a3df-b99a7af2563d)
 
 AI Chatbot
 
