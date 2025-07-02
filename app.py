@@ -1,16 +1,18 @@
 from flask import Flask, request, jsonify, render_template, url_for
 from flask_cors import CORS
 import mysql.connector
+import os
 
-app = Flask(__name__)
+app = Flask(_name_)
 CORS(app)
 
-# MySQL Config
+# MySQL Config - Now using environment variables
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'Jesus@Love',
-    'database': 'Aadhar Card'
+    'host': os.getenv('MYSQLHOST'),
+    'user': os.getenv('MYSQLUSER'),
+    'password': os.getenv('MYSQLPASSWORD'),
+    'database': os.getenv('MYSQLDATABASE'),
+    'port': os.getenv('MYSQLPORT', '3306')
 }
 
 # Route to serve index.html
@@ -32,7 +34,6 @@ def signup():
 
     if not name or not email:
         return jsonify({'message': 'Missing data'}), 400
-
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
@@ -49,5 +50,5 @@ def signup():
     except mysql.connector.Error as err:
         return jsonify({'message': f'Error: {err}'}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if _name_ == '_main_':
+    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
