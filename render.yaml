@@ -1,22 +1,16 @@
 services:
-
-type: web
-name: aadhar-card-app
-runtime: python
-buildCommand: pip install -r requirements.txt
-startCommand: gunicorn app:app
-envVars:
-
-key: MYSQL_HOST
-value: your-mysql-host
-
-key: MYSQL_USER
-value: your-mysql-user
-
-key: MYSQL_PASSWORD
-value: your-mysql-password
-
-key: MYSQL_DATABASE
-value: your-mysql-database
-
-pythonVersion: 3.9.12
+  - type: web
+    name: aadhar-card-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: MYSQL_HOST
+        value: your-mysql-host
+      - key: MYSQL_USER
+        value: your-mysql-user
+      - key: MYSQL_PASSWORD
+        value: your-mysql-password
+      - key: MYSQL_DATABASE
+        value: your-mysql-database
+    pythonVersion: 3.9.12
