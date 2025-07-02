@@ -15,15 +15,24 @@ db_config = {
     'port': os.getenv('MYSQLPORT', '3306')
 }
 
-# Route to serve index.html
-@app.route('/')
-def home():
-    return render_template('index.html')
+# Update your db_config in app.py to include error handling:
+db_config = {
+    'host': os.getenv('MYSQLHOST', 'localhost'),
+    'user': os.getenv('MYSQLUSER', 'root'),
+    'password': os.getenv('MYSQLPASSWORD', ''),
+    'database': os.getenv('MYSQLDATABASE', 'Aadhar Card'),
+    'port': os.getenv('MYSQLPORT', '3306')
+}
 
-# ✅ New route to serve developer.html
-@app.route('/developer')
-def developer():
-    return render_template('developer.html')
+# Add this before your routes to test connection
+@app.before_first_request
+def test_db_connection():
+    try:
+        conn = mysql.connector.connect(**db_config)
+        conn.close()
+        print("✅ Database connection successful")
+    except Exception as e:
+        print(f"❌ Database connection failed: {str(e)}")
 
 # Route to store signup data
 @app.route('/signup', methods=['POST'])
